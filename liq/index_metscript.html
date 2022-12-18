@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='FileListOnServer.php'></script>
+    <title>LIQ test suite</title>
+  </head>
+  <body>
+    <div id="buttons"></div>
+    <div id="app"></div>
+  <script type="text/javascript" src="https://www.legallinq.com/liq/LIQbundle.js"></script>
+<script>
+  function goToSite(file){
+    window.location.href = "https://www.legallinq.com/liq?liqxlsurl=https://www.legallinq.com/liq/"+file+".xlsx&multiple=true";
+  }
+
+  //make filesNames, only when file starts with "LiQ - "
+  fileNames = []; 
+  files.forEach(f => { 
+    if(f.indexOf("LiQ - ") != -1){
+      fname = (f.replace("LiQ - ",""));
+      var button = document.createElement('button');
+        button.setAttribute('class','fileButtons');
+        button.setAttribute('style','margin-left: 10px;');
+        button.setAttribute('id',f);
+        button.addEventListener("click", function(){goToSite(f)});
+        var span = document.createElement('span');
+        span.setAttribute('class','jb jc');
+        span.innerHTML = fname;
+        button.appendChild(span);    
+        document.body.append(button);
+
+    }
+  });
+
+</script>
+
+</body>
+</html>

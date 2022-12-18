@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns:xf="http://www.w3.org/2002/xforms/" xmlns:LLQ="https://www.legallinq.com/DMNinput" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_66339dc5-c2d3-47de-b73f-b4e2b4d8ae74" name="LogicLinQ" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="http://www.omg.org/spec/DMN/20180521/MODEL/">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_7cf5a518-4e61-477e-8883-03005f59043b" name="Levering_goederen_naar_29896d0f-4c5c-4dcb-94ce-e7a31c531735" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues id="_45502DD7-8274-4D34-8464-9F1AFE934341">
+      <dmn:text>"Nederland","EU","Buiten EU"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_86911e14-1913-42f2-9d2c-f2e32ea48dc4" name="Levering_goederen_naar">
+    <dmn:extensionElements/>
+  </dmn:inputData>
+  <dmn:inputData id="_6124f810-19b2-403d-a17a-9eb84866b29b" name="Bederfelijke_waar">
+    <dmn:extensionElements/>
+  </dmn:inputData>
+  <dmn:inputData id="_af75a668-25e2-49ff-9f95-cc09ed076283" name="Online_levering">
+    <dmn:extensionElements/>
+  </dmn:inputData>
+  <dmn:inputData id="_1e4eb6ed-661d-4784-bd62-bcaeda5a2c55" name="Datum_aflevering">
+    <dmn:extensionElements/>
+  </dmn:inputData>
+  <dmn:decision id="_eb2888b4-3ec8-4503-85ad-088eecd46964" name="Information">
+    <dmn:description>Productlevering van dit hypothetische bedrijf, aan welke eisen van compliance moet worden voldaan?</dmn:description>
+    <dmn:extensionElements/>
+    <dmn:variable id="_a1278255-3140-40aa-bf00-609d793ad59d" name="Information"/>
+    <dmn:informationRequirement id="_B5C9F7A8-2A9A-4B9B-8C78-3642A63CFBFF">
+      <dmn:requiredInput href="#_86911e14-1913-42f2-9d2c-f2e32ea48dc4"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_989AFA7D-88D7-41B8-9BAF-3D25508FE675">
+      <dmn:requiredInput href="#_6124f810-19b2-403d-a17a-9eb84866b29b"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_9687B088-1A44-4713-8284-0241E9BFF0E0">
+      <dmn:requiredInput href="#_af75a668-25e2-49ff-9f95-cc09ed076283"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_D4922182-AF3E-435B-A364-039E32592CB3">
+      <dmn:requiredInput href="#_1e4eb6ed-661d-4784-bd62-bcaeda5a2c55"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_99c479f4-c5b6-4142-8575-4ba87da9e98a" hitPolicy="COLLECT" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_ba632201-e5d8-4c8b-8a10-13dfe58dfc9a">
+        <dmn:inputExpression id="_f6a264dc-f8b3-44f1-8d88-63d3f26f67b0" typeRef="Levering_goederen_naar_29896d0f-4c5c-4dcb-94ce-e7a31c531735">
+          <dmn:text>Levering_goederen_naar</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_2115e96e-240c-495e-9da9-b46fa8f5dcdd">
+        <dmn:inputExpression id="_4b7105b0-5910-4907-a1fb-0ee85d883464" typeRef="boolean">
+          <dmn:text>Bederfelijke_waar</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_6faf213c-afb7-459d-9856-8c8984aa0c51">
+        <dmn:inputExpression id="_d1656f90-445c-4c7d-a9e3-7404b4382098" typeRef="boolean">
+          <dmn:text>Online_levering</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_ea6d50a4-040f-4d5f-8383-2182ba50f097">
+        <dmn:inputExpression id="_c38a0281-7cdf-4c7a-9d01-03d24fb16c4e" typeRef="date">
+          <dmn:text>Datum_aflevering</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_b567ddb5-22cb-4149-ad51-f35970bfb3ea"/>
+      <dmn:annotation name=""/>
+      <dmn:rule id="_1341a3a8-91ba-4fda-9642-3486a4711b33">
+        <dmn:inputEntry id="_0ba7ee7c-b873-48e2-9940-92e39e519397">
+          <dmn:text>"Buiten EU"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_25099c60-f739-4d2f-b77e-46340a9de17d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0e1e6c9f-5d29-47a1-9784-bd03158896c4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e83e96f0-d023-40a6-bf9f-de563d4cbe73">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_300fb3b3-b669-418c-8d06-1f5c4d5eb0aa">
+          <dmn:text>"Levering is niet toegestaan."</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_f7ba4619-e063-4522-9685-12ad3c3ec278">
+        <dmn:inputEntry id="_e64a063a-844e-435e-beb6-863ecf0573c4">
+          <dmn:text>"EU"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4f824686-5b49-4b34-aa70-a78403209ab0">
+          <dmn:text>TRUE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4fdd2bf5-9223-4be3-9fba-a04ca679f16f">
+          <dmn:text>FALSE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_23b597c6-1852-4007-bcd8-f18cdb1b94ce">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_4a8db127-ac7d-459b-9f7a-d4f515b6b822">
+          <dmn:text>"Levering per vliegtuig"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_94e99c73-1f30-4bde-a76a-80e208df34d0">
+        <dmn:inputEntry id="_762dc1be-42de-490e-be2a-61a8475365b1">
+          <dmn:text>"EU"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_dc4a91b6-eb5c-40c7-8ad6-414dff701a25">
+          <dmn:text>FALSE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e4c3cb7c-d982-4a99-b5a6-c5976e43c933">
+          <dmn:text>FALSE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0c6f4041-cc28-4401-9be8-1fd6728b8cd0">
+          <dmn:text>&lt;=date(date("")+duration("P3D"))</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_f5ec4792-0d6a-4e6a-8774-7c0254229c05">
+          <dmn:text>"Levering per vliegtuig"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_9c3a43d1-7f0b-4668-ba3e-fcc0f9485955">
+        <dmn:inputEntry id="_27ac4028-1b3c-4d79-8b40-cf4080a735c7">
+          <dmn:text>"EU"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_89a6f866-54f9-4942-baa8-d0ac9c0c491e">
+          <dmn:text>FALSE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_04202824-14b8-44c2-b779-450d6de0e786">
+          <dmn:text>FALSE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_03d55144-cca6-4dcb-9247-fa634291bcfb">
+          <dmn:text>&gt;date(date("")+duration("P3D"))</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_06309ea4-cecf-4980-bc28-ed3ed31295b0">
+          <dmn:text>"Levering per trein en wegtransport"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_8f2c3e95-159a-4ef0-81c1-8a2e8b3bc40a">
+        <dmn:inputEntry id="_4d2d3789-2ef3-4595-9811-8741c5160d8b">
+          <dmn:text>"Nederland"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4b30f522-b998-41d9-9603-b3f031ff8c2c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_84a295c4-7b5c-4bc2-812f-5452ac642122">
+          <dmn:text>FALSE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_c97f44c0-c2ef-439c-895d-9b07bc8496f7">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_c69b5e98-2d09-4bfe-ba7d-d926779e903d">
+          <dmn:text>"Levering met wegtransport"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_57f2768e-fb03-4880-8088-b9a568642b82">
+        <dmn:inputEntry id="_bb6a5c40-9d7b-449e-a086-cebf3b3d6b74">
+          <dmn:text>not("Buiten EU")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1361244b-d15f-44c7-9fba-f9f13f45f45b">
+          <dmn:text>TRUE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a36a4e1a-5867-489d-bc69-f1313fb52c40">
+          <dmn:text>FALSE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_d0c7abd5-e631-4fcd-86c1-8c3d162806c9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_0dd5e628-ddae-4a46-bed3-18bee652897b">
+          <dmn:text>"Gekoeld transport"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_c91378ea-c6be-44c6-a084-67503032ebc8">
+        <dmn:inputEntry id="_43bda67d-fd61-4457-9050-6274d48944c0">
+          <dmn:text>not("Buiten EU")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_27e78074-56d6-4b4b-9532-f52b919347f0">
+          <dmn:text>TRUE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e30d423c-a19b-440d-a23f-cae2cb81f07b">
+          <dmn:text>FALSE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_42370cc7-f0c0-41f8-a5e5-ef290742a76a">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_14636434-4b0c-45ae-a9af-cecf018851b3">
+          <dmn:text>"Houdbaarheidssticker"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_23d5ec0e-60d6-438e-aa92-322149126a05">
+        <dmn:inputEntry id="_3dfb2629-dfe5-4a03-9e84-58b9ed08c239">
+          <dmn:text>not("Buiten EU")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_fdfade68-a948-4510-a05a-7271c2a900b9">
+          <dmn:text>FALSE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b04d7870-367d-4079-8090-c3f86cba7a92">
+          <dmn:text>FALSE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e5ba9df7-3866-467c-aca8-e49933129423">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_4e61b1b9-cd8c-46e6-a60b-1743c62ad561">
+          <dmn:text>"CE-sticker"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_7ca05c56-ac15-427b-ad41-ed3bf6f4e78a">
+        <dmn:inputEntry id="_76e71f35-dc94-47db-a058-a9f5cd0ba49a">
+          <dmn:text>not("Buiten EU")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_c88a0243-9a35-45df-935a-0dcc49f79809">
+          <dmn:text>FALSE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_d9ccc283-3106-4950-88ef-1efb28549ec8">
+          <dmn:text>TRUE</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_dfc6f9d3-db8a-4bf4-bdbe-8e04f91a6525">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_1cfc5a9c-0a2b-4c41-92d8-a20af2722daf">
+          <dmn:text>"Betaling voorafgaand aan levering"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_f55a9465-c5cb-41f8-b624-72b8e578ccb2">
+        <dmn:inputEntry id="_db886c19-d919-4842-be60-8bab8286e3c4">
+          <dmn:text>not("Buiten EU")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e3d90348-e467-40e3-bb3e-fa652aff4647">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_567e7921-7d41-4b9e-84dc-1c836c0ea06e">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_291b125d-66ff-49a1-b313-acd3e7a65de4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_e656b3bb-c750-4464-8808-e4d7621efe11">
+          <dmn:text>"Pas algemene voorwaarden toe"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_9090a64f-92e5-4d66-92de-15227b45c30d">
+        <dmn:inputEntry id="_9028d648-4f3c-47b5-8804-6528197016b2">
+          <dmn:text>not("Buiten EU")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_34e5fb63-2ed2-4afb-836c-e0ae2f8d7370">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_d89ceddd-dd89-46b1-9e98-583849482935">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1937b919-ed47-4b8e-9a7e-bbc224f9e3cf">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_17777e83-819f-4cb2-98b2-5cb7c923f67f">
+          <dmn:text>"Stuur factuur"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_61454ADE-8CFA-4B94-8E6E-2B4004F02F20" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_99c479f4-c5b6-4142-8575-4ba87da9e98a">
+            <kie:width>50</kie:width>
+            <kie:width>185</kie:width>
+            <kie:width>156</kie:width>
+            <kie:width>160</kie:width>
+            <kie:width>299</kie:width>
+            <kie:width>337</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_86911e14-1913-42f2-9d2c-f2e32ea48dc4" dmnElementRef="dmn:_86911e14-1913-42f2-9d2c-f2e32ea48dc4" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="50" y="225" width="189" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_6124f810-19b2-403d-a17a-9eb84866b29b" dmnElementRef="dmn:_6124f810-19b2-403d-a17a-9eb84866b29b" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="279.5981308411215" y="225" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_af75a668-25e2-49ff-9f95-cc09ed076283" dmnElementRef="dmn:_af75a668-25e2-49ff-9f95-cc09ed076283" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="462" y="225" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_1e4eb6ed-661d-4784-bd62-bcaeda5a2c55" dmnElementRef="dmn:_1e4eb6ed-661d-4784-bd62-bcaeda5a2c55" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="628" y="225" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_eb2888b4-3ec8-4503-85ad-088eecd46964" dmnElementRef="dmn:_eb2888b4-3ec8-4503-85ad-088eecd46964" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="389" y="12" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_B5C9F7A8-2A9A-4B9B-8C78-3642A63CFBFF" dmnElementRef="dmn:_B5C9F7A8-2A9A-4B9B-8C78-3642A63CFBFF">
+        <di:waypoint x="144.5" y="250"/>
+        <di:waypoint x="439" y="37"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_989AFA7D-88D7-41B8-9BAF-3D25508FE675" dmnElementRef="dmn:_989AFA7D-88D7-41B8-9BAF-3D25508FE675">
+        <di:waypoint x="329.5981308411215" y="250"/>
+        <di:waypoint x="439" y="37"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_9687B088-1A44-4713-8284-0241E9BFF0E0" dmnElementRef="dmn:_9687B088-1A44-4713-8284-0241E9BFF0E0">
+        <di:waypoint x="512" y="250"/>
+        <di:waypoint x="439" y="37"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_D4922182-AF3E-435B-A364-039E32592CB3" dmnElementRef="dmn:_D4922182-AF3E-435B-A364-039E32592CB3">
+        <di:waypoint x="678" y="250"/>
+        <di:waypoint x="439" y="37"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>

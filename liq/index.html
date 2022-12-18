@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='FileListOnServer.php'></script>
+    <title>LIQ test suite</title>
+  </head>
+  <body>
+    <div style="padding-bottom: 25px;" id="app"></div>
+    <hr>
+    <div id="formbuttons" style="padding-left:20%; padding-top:25px; width:800px;">
+      <H2>Voorbeelden</H2>
+      <p><em>Te gebruiken als start documenten, niet als juridisch advies.</em></p>
+    </div>
+
+    <script>
+      function goToSite(file){
+        window.location.href = "https://www.legallinq.com/liq?liqxlsurl=https://www.legallinq.com/liq/"+file+".xlsx";
+      }
+    
+      //make filesNames, only when file starts with "LiQ - "
+      fileNames = []; 
+      files.forEach(f => { 
+        if(f.indexOf("LiQ - ") != -1){
+          fname = (f.replace("LiQ - ",""));
+          var button = document.createElement('button');
+            button.setAttribute('class','fileButtons');
+            button.setAttribute('style','margin-right: 10px; margin-bottom:10px');
+            button.setAttribute('id',f);
+            button.addEventListener("click", function(){goToSite(f)});
+            var span = document.createElement('span');
+            span.setAttribute('class','jb jc');
+            span.innerHTML = fname;
+            button.appendChild(span);
+            document.getElementById('formbuttons').appendChild(button);
+        }
+      });
+
+    </script>
+  <script type="text/javascript" src="https://www.legallinq.com/liq/LIQbundle.js"></script></body>
+</html>
