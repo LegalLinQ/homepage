@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "https://www.legallinq.com/dmn/";
+/******/ 	__webpack_require__.p = "http://www.legallinq.com/dmn/";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -82554,7 +82554,7 @@ function determineTypeRefOutput(outputValues){
 function decisionTableToDMN(dT){
   var xw = new XMLWriter(true);
   xw.startDocument('1.0', 'UTF-8');
-  xw.startElement('definitions'); xw.writeAttribute('xmlns', 'http://www.omg.org/spec/DMN/20151101/dmn.xsd');xw.writeAttribute('xmlns:LegalLinQ', 'https://www.legallinq.com/DMNextention.xsd');xw.writeAttribute('namespace','http://www.omg.org/spec/DMN/20151101/dmn.xsd');xw.writeAttribute('name','DefinitiesNaam');
+  xw.startElement('definitions'); xw.writeAttribute('xmlns', 'http://www.omg.org/spec/DMN/20151101/dmn.xsd');xw.writeAttribute('xmlns:LegalLinQ', 'http://www.legallinq.com/DMNextention.xsd');xw.writeAttribute('namespace','http://www.omg.org/spec/DMN/20151101/dmn.xsd');xw.writeAttribute('name','DefinitiesNaam');
     xw.startElement('decision'); xw.writeAttribute('id',dT["decisionTableId"].replace(/\s+/g,'_')); xw.writeAttribute('name',dT["decisionTableId"]);
       //xw.startElement('extensionElements');xw.endElement();
       //xw.startElement('informationRequirement');xw.endElement();

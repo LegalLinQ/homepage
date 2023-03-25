@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "https://www.legallinq.com/liq/";
+/******/ 	__webpack_require__.p = "http://www.legallinq.com/liq/";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -54522,7 +54522,7 @@ function buildJsonForm() {
 function buildBasicJsonForm(xmlDoc) {
   var jsonForm = formJSONobject();
   jsonForm.schema.title = xmlDoc.querySelector('decision').getAttribute('name');
-  jsonForm.schema.description = 'This is a basic form, please consider to insert proper formData from https://LegalLinq.com.';
+  jsonForm.schema.description = 'This is a basic form, please consider to insert proper formData from http://LegalLinq.com.';
   jsonForm.decisionID = xmlDoc.querySelector('decision').getAttribute('id');
   jsonForm.outputName = xmlDoc.querySelector('output').getAttribute('name'); //TODO: check of dit geen array moet zijn, er zijn toch meerdere outputs mogelijk???
   //build schema en form
@@ -54563,7 +54563,7 @@ function decisionsList(xmlContentInput) {
   var Decisions = xmlDoc.querySelectorAll('decision');
   var s = new XMLSerializer(); //repair XML
 
-  var XMLprior = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><definitions xmlns=\"http://www.omg.org/spec/DMN/20151101/dmn.xsd\" xmlns:LLQ=\"https://www.legallinq.com/DMNinput\" namespace=\"http://www.omg.org/spec/DMN/20151101/dmn.xsd\" expressionLanguage=\"FEEL\" name=\"DefinitiesNaam\">";
+  var XMLprior = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><definitions xmlns=\"http://www.omg.org/spec/DMN/20151101/dmn.xsd\" xmlns:LLQ=\"http://www.legallinq.com/DMNinput\" namespace=\"http://www.omg.org/spec/DMN/20151101/dmn.xsd\" expressionLanguage=\"FEEL\" name=\"DefinitiesNaam\">";
   var XMLclose = "</definitions>";
 
   for (var i = 0; i < Decisions.length; i++) {
