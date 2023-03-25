@@ -54522,7 +54522,7 @@ function buildJsonForm() {
 function buildBasicJsonForm(xmlDoc) {
   var jsonForm = formJSONobject();
   jsonForm.schema.title = xmlDoc.querySelector('decision').getAttribute('name');
-  jsonForm.schema.description = 'This is a basic form, please consider to insert proper formData from http://LegalLinq.com.';
+  jsonForm.schema.description = 'This is a basic form, please consider to insert proper formData from http://www.legallinq.com.';
   jsonForm.decisionID = xmlDoc.querySelector('decision').getAttribute('id');
   jsonForm.outputName = xmlDoc.querySelector('output').getAttribute('name'); //TODO: check of dit geen array moet zijn, er zijn toch meerdere outputs mogelijk???
   //build schema en form
